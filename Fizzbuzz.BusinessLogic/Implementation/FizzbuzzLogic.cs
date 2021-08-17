@@ -9,7 +9,14 @@ namespace Fizzbuzz.BusinessLogic.Implementation
 {
     public class FizzbuzzLogic : IFizzbuzzLogic
     {
-        private IEnumerable<IRule> _rules = new List<IRule> { new MultipleOfThree(), new MultipleOfFive() };
+        private IEnumerable<IRule> _rules;
+        private IDateTimeProvider _dateTimeProvider;
+
+        public FizzbuzzLogic(IEnumerable<IRule> _rules, IDateTimeProvider _dateTimeProvider)
+        {
+            this._rules = _rules;
+            this._dateTimeProvider = _dateTimeProvider;
+        }
 
         public List<string> GetFizzBuzzList(int QueryNumber, DayOfWeek CurrentDay)
         {

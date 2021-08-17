@@ -19,7 +19,10 @@ namespace Fizzbuzz.MVC.DependencyResolution {
     using StructureMap;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
-	
+    using Fizzbuzz.BusinessLogic.Implementation;
+    using Fizzbuzz.BusinessLogic.Interface;
+    using System.Collections.Generic;
+
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
 
@@ -30,7 +33,8 @@ namespace Fizzbuzz.MVC.DependencyResolution {
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
-            //For<IExample>().Use<Example>();
+            For<IFizzbuzzLogic>().Use(new FizzbuzzLogic(new List<IRule> { new MultipleOfThree(), new MultipleOfFive() }, new DateTimeProvider()));
+            For<IDateTimeProvider>().Use<DateTimeProvider>();
         }
 
         #endregion

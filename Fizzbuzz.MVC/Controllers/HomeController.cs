@@ -11,8 +11,14 @@ namespace Fizzbuzz.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private FizzbuzzLogic _fizzbuzzLogic = new FizzbuzzLogic();
-        private DateTimeProvider _dayTimeProvider = new DateTimeProvider();
+        private FizzbuzzLogic _fizzbuzzLogic;
+        private DateTimeProvider _dateTimeProvider;
+
+        public HomeController(FizzbuzzLogic _fizzbuzzLogic, DateTimeProvider _dateTimeProvider)
+        {
+            this._fizzbuzzLogic = _fizzbuzzLogic;
+            this._dateTimeProvider = _dateTimeProvider;
+        }
 
         public ActionResult Index()
         {
@@ -23,7 +29,7 @@ namespace Fizzbuzz.MVC.Controllers
         public ActionResult Result(FizzbuzzModel FizzbuzzModel, int? page)
         {
             int QueryNumber = Int32.Parse(FizzbuzzModel.InputString);
-            DayOfWeek CurrentDay = _dayTimeProvider.GetCurrentDay();
+            DayOfWeek CurrentDay = _dateTimeProvider.GetCurrentDay();
             int pageNumber = page ?? 1;
             FizzbuzzModel.OutputList = (PagedList<string>)_fizzbuzzLogic.GetFizzBuzzList(QueryNumber, CurrentDay).ToPagedList(pageNumber, 10);
 
@@ -42,7 +48,7 @@ namespace Fizzbuzz.MVC.Controllers
             {
                 InputString = inputString
             };
-            DayOfWeek CurrentDay = _dayTimeProvider.GetCurrentDay();
+            DayOfWeek CurrentDay = _dateTimeProvider.GetCurrentDay();
             int pageNumber = page ?? 1;
             fizzbuzzModel.OutputList = (PagedList<string>)_fizzbuzzLogic.GetFizzBuzzList(QueryNumber, CurrentDay).ToPagedList(pageNumber, 10);
 
