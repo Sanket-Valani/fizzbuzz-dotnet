@@ -1,17 +1,40 @@
-﻿@{
+﻿@model Fizzbuzz.MVC.Models.FizzbuzzModel
+@{
     Layout = null;
 }
+
+@using PagedList.Mvc;
+@using PagedList;
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>Result</title>
 </head>
 <body>
-    <div>
-    
+
+    <div class="container">
+        <h1> Result </h1>
+        <p> Number: @Model.InputString  </p>
+
+        @if (Model != null)
+        {
+            <div class="center-div">
+                @foreach (string FizzbuzzString in Model.OutputList)
+                {
+                    <p class="fizzbuzzString" fizzbuzzString="@FizzbuzzString"> @FizzbuzzString </p>
+                }
+            </div>
+            
+            string InputString = Model.InputString;
+            @Html.PagedListPager((IPagedList)Model.OutputList, page => Url.Action("Result", new { page, InputString }))
+        }
+
+        <br /><br /><br />
+        <button onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");"> Try again </button>
     </div>
+
 </body>
 </html>
