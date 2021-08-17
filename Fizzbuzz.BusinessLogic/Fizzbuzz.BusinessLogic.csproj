@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\DateTimeProvider.cs" />
     <Compile Include="Implementation\FizzbuzzLogic.cs" />
     <Compile Include="Implementation\MultipleOfFive.cs" />
     <Compile Include="Implementation\MultipleOfThree.cs" />
+    <Compile Include="Interface\IDateTimeProvider.cs" />
+    <Compile Include="Interface\IFizzbuzzLogic.cs" />
     <Compile Include="Interface\IRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

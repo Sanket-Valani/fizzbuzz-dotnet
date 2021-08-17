@@ -7,11 +7,11 @@ using Fizzbuzz.BusinessLogic.Interface;
 
 namespace Fizzbuzz.BusinessLogic.Implementation
 {
-    public class FizzbuzzLogic
+    public class FizzbuzzLogic : IFizzbuzzLogic
     {
         private IEnumerable<IRule> _rules = new List<IRule> { new MultipleOfThree(), new MultipleOfFive() };
 
-    public List<string> GetFizzBuzzList(int QueryNumber, DayOfWeek CurrentDay)
+        public List<string> GetFizzBuzzList(int QueryNumber, DayOfWeek CurrentDay)
         {
             List<string> FizzbuzzList = new List<string>();
 
