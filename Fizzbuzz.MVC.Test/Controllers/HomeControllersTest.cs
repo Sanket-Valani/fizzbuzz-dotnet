@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using PagedList;
+using Fizzbuzz.MVC.Models;
+using System.Web.Mvc;
+using Fizzbuzz.MVC.Controllers;
 
 namespace Fizzbuzz.MVC.Test.Controllers
 {
@@ -17,7 +20,7 @@ namespace Fizzbuzz.MVC.Test.Controllers
             var HomeController = new HomeController();
             var DummyModel = new FizzbuzzModel
             {
-                inputString = "10"
+                InputString = "10"
             };
             var page = 1;
 
