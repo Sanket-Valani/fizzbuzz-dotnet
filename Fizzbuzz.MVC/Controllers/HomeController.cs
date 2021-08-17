@@ -4,17 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Fizzbuzz.MVC.Models;
-using Fizzbuzz.BusinessLogic.Implementation;
+using Fizzbuzz.BusinessLogic.Interface;
 using PagedList;
 
 namespace Fizzbuzz.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private FizzbuzzLogic _fizzbuzzLogic;
-        private DateTimeProvider _dateTimeProvider;
+        private IFizzbuzzLogic _fizzbuzzLogic;
+        private IDateTimeProvider _dateTimeProvider;
 
-        public HomeController(FizzbuzzLogic _fizzbuzzLogic, DateTimeProvider _dateTimeProvider)
+        public HomeController(IFizzbuzzLogic _fizzbuzzLogic, IDateTimeProvider _dateTimeProvider)
         {
             this._fizzbuzzLogic = _fizzbuzzLogic;
             this._dateTimeProvider = _dateTimeProvider;
