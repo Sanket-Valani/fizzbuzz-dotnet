@@ -9,6 +9,6 @@ namespace Fizzbuzz.BusinessLogic.Interface
     public interface IRule
     {
         bool IsMultiple(int Number);
-        string GetString(DayOfWeek CurrentDay);
+        string GetCurrentDayString(DayOfWeek CurrentDay);
     }
 }

@@ -5,6 +5,7 @@
 
 @using PagedList.Mvc;
 @using PagedList;
+@Styles.Render("~/Content/css");
 
 <!DOCTYPE html>
 
@@ -12,7 +13,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Result</title>
-    @Styles.Render("~/Content/css")
+
 </head>
 <body>
 
@@ -25,16 +26,21 @@
             <div class="center-div">
                 @foreach (string FizzbuzzString in Model.OutputList)
                 {
-                    <p class="fizzbuzzString" fizzbuzzString="@FizzbuzzString"> @FizzbuzzString </p>
+                    <p class="fizzbuzzString @FizzbuzzString"> @FizzbuzzString </p>
                 }
             </div>
-            
-            string InputString = Model.InputString;
+
+            string InputString = Model.InputString.ToString();
             @Html.PagedListPager((IPagedList)Model.OutputList, page => Url.Action("Result", new { page, InputString }))
         }
 
         <br /><br /><br />
-        <button onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");"> Try again </button>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <input type="submit" value="Try again" />
+        }
+
+
     </div>
 
 </body>

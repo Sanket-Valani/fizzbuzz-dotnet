@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="Implementation\DateTimeProvider.cs" />
     <Compile Include="Implementation\FizzbuzzLogic.cs" />
-    <Compile Include="Implementation\MultipleOfFive.cs" />
-    <Compile Include="Implementation\MultipleOfThree.cs" />
+    <Compile Include="Implementation\MultipleOfFiveRule.cs" />
+    <Compile Include="Implementation\MultipleOfThreeRule.cs" />
     <Compile Include="Interface\IDateTimeProvider.cs" />
     <Compile Include="Interface\IFizzbuzzLogic.cs" />
     <Compile Include="Interface\IRule.cs" />

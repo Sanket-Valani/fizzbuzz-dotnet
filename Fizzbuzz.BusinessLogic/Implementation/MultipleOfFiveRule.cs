@@ -7,13 +7,13 @@ using Fizzbuzz.BusinessLogic.Interface;
 
 namespace Fizzbuzz.BusinessLogic.Implementation
 {
-    public class MultipleOfFive : IRule
+    public class MultipleOfFiveRule : IRule
     {
         public bool IsMultiple(int Number)
         {
             return (Number % 5 == 0);
         }
-        public string GetString(DayOfWeek CurrentDay)
+        public string GetCurrentDayString(DayOfWeek CurrentDay)
         {
             return CurrentDay.Equals(DayOfWeek.Wednesday) ? "Wuzz" : "Buzz";
         }

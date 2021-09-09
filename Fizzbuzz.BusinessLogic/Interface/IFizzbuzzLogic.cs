@@ -8,6 +8,6 @@ namespace Fizzbuzz.BusinessLogic.Interface
 {
     public interface IFizzbuzzLogic
     {
-        List<string> GetFizzBuzzList(int QueryNumber, DayOfWeek CurrentDay);
+        IList<string> GetFizzBuzzList(int QueryNumber);
     }
 }

@@ -9,16 +9,16 @@ using Fizzbuzz.BusinessLogic.Implementation;
 
 namespace Fizzbuzz.BusinessLogic.Test.Implementation
 {
-    class MultipleOfThreeTest
+    class MultipleOfThreeRuleTest
     {
         [Test]
         public void IsMultiple_InputIsMultipleOfThree_ReturnsTrue()
         {
             // Arrange
-            var MultipleOfThree = new MultipleOfThree();
+            var MultipleOfThreeRule = new MultipleOfThreeRule();
 
             // Act
-            var Result = MultipleOfThree.IsMultiple(3);
+            var Result = MultipleOfThreeRule.IsMultiple(3);
 
             // Assert
             Assert.IsTrue(Result);
@@ -28,10 +28,10 @@ namespace Fizzbuzz.BusinessLogic.Test.Implementation
         public void IsMultiple_InputIsNotMultipleOfThree_ReturnsFalse()
         {
             // Arrange
-            var MultipleOfThree = new MultipleOfThree();
+            var MultipleOfThreeRule = new MultipleOfThreeRule();
 
             // Act
-            var Result = MultipleOfThree.IsMultiple(4);
+            var Result = MultipleOfThreeRule.IsMultiple(4);
 
             // Assert
             Assert.IsFalse(Result);
@@ -41,10 +41,10 @@ namespace Fizzbuzz.BusinessLogic.Test.Implementation
         public void GetString_CurrentDayIsWednesday_ReturnsWizz()
         {
             // Arrange
-            var MultipleOfThree = new MultipleOfThree();
+            var MultipleOfThreeRule = new MultipleOfThreeRule();
 
             // Act
-            var Result = MultipleOfThree.GetString(DayOfWeek.Wednesday);
+            var Result = MultipleOfThreeRule.GetCurrentDayString(DayOfWeek.Wednesday);
 
             // Assert
             string Expected = "Wizz";
@@ -55,10 +55,10 @@ namespace Fizzbuzz.BusinessLogic.Test.Implementation
         public void GetString_CurrentDayIsNotWednesday_ReturnsFizz()
         {
             // Arrange
-            var MultipleOfThree = new MultipleOfThree();
+            var MultipleOfThreeRule = new MultipleOfThreeRule();
 
             // Act
-            var Result = MultipleOfThree.GetString(DayOfWeek.Monday);
+            var Result = MultipleOfThreeRule.GetCurrentDayString(DayOfWeek.Monday);
 
             // Assert
             string Expected = "Fizz";

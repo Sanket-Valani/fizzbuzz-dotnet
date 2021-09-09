@@ -12,24 +12,24 @@ namespace Fizzbuzz.BusinessLogic.Test.Implementation
 {
     class FizzbuzzLogicTest
     {
-        private IEnumerable<IRule> _rules;
-        private Mock<IDateTimeProvider> _dateTimeProvider;
+        private IEnumerable<IRule> rules;
+        private Mock<IDateTimeProvider> dateTimeProvider;
 
         [SetUp]
         public void Setup()
         {
-            _rules = new List<IRule>() { new Mock<IRule>().Object, new Mock<IRule>().Object };
-            _dateTimeProvider = new Mock<IDateTimeProvider>();
+            rules = new List<IRule>() { new Mock<IRule>().Object, new Mock<IRule>().Object };
+            dateTimeProvider = new Mock<IDateTimeProvider>();
         }
 
         [Test]
         public void GetFizzBuzzList_QueryNumberIsTen_ReturnsListOfStringOfSizeTen()
         {
             // Arrange
-            var FizzbuzzLogic = new FizzbuzzLogic(_rules, _dateTimeProvider.Object);
+            var FizzbuzzLogic = new FizzbuzzLogic(rules, dateTimeProvider.Object);
 
             // Act
-            var Result = FizzbuzzLogic.GetFizzBuzzList(10, DayOfWeek.Monday);
+            var Result = FizzbuzzLogic.GetFizzBuzzList(10);
 
             // Assert
             Assert.AreEqual(10, Result.Count);
@@ -40,10 +40,10 @@ namespace Fizzbuzz.BusinessLogic.Test.Implementation
         public void GetFizzBuzzList_QueryNumberIsFifteen_ReturnsListOfStringOfSizeFifteen()
         {
             // Arrange
-            var FizzbuzzLogic = new FizzbuzzLogic(_rules, _dateTimeProvider.Object);
+            var FizzbuzzLogic = new FizzbuzzLogic(rules, dateTimeProvider.Object);
 
             // Act
-            var Result = FizzbuzzLogic.GetFizzBuzzList(15, DayOfWeek.Monday);
+            var Result = FizzbuzzLogic.GetFizzBuzzList(15);
 
             // Assert
             Assert.AreEqual(15, Result.Count);

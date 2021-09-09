@@ -8,7 +8,7 @@ namespace Fizzbuzz.MVC.Models
 {
     public class FizzbuzzModel
     {
-        public string InputString { get; set; }
+        public int InputString { get; set; }
         public PagedList<string> OutputList { get; set; }
     }
 }

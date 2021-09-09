@@ -9,16 +9,16 @@ using Fizzbuzz.BusinessLogic.Implementation;
 
 namespace Fizzbuzz.BusinessLogic.Test.Implementation
 {
-    class MultipleOfFiveTest
+    class MultipleOfFiveRuleTest
     {
         [Test]
         public void IsMultiple_InputIsMultipleOfFive_ReturnsTrue()
         {
             // Arrange
-            var MultipleOfFive = new MultipleOfFive();
+            var MultipleOfFiveRule = new MultipleOfFiveRule();
 
             // Act
-            var Result = MultipleOfFive.IsMultiple(10);
+            var Result = MultipleOfFiveRule.IsMultiple(10);
 
             // Assert
             Assert.IsTrue(Result);
@@ -28,10 +28,10 @@ namespace Fizzbuzz.BusinessLogic.Test.Implementation
         public void IsMultiple_InputIsNotMultipleOfFive_ReturnsFalse()
         {
             // Arrange
-            var MultipleOfFive = new MultipleOfFive();
+            var MultipleOfFiveRule = new MultipleOfFiveRule();
 
             // Act
-            var Result = MultipleOfFive.IsMultiple(7);
+            var Result = MultipleOfFiveRule.IsMultiple(7);
 
             // Assert
             Assert.IsFalse(Result);
@@ -41,10 +41,10 @@ namespace Fizzbuzz.BusinessLogic.Test.Implementation
         public void GetString_CurrentDayIsWednesday_ReturnsWuzz()
         {
             // Arrange
-            var MultipleOfFive = new MultipleOfFive();
+            var MultipleOfFiveRule = new MultipleOfFiveRule();
 
             // Act
-            var Result = MultipleOfFive.GetString(DayOfWeek.Wednesday);
+            var Result = MultipleOfFiveRule.GetCurrentDayString(DayOfWeek.Wednesday);
 
             // Assert
             string Expected = "Wuzz";
@@ -55,10 +55,10 @@ namespace Fizzbuzz.BusinessLogic.Test.Implementation
         public void GetString_CurrentDayIsNotWednesday_ReturnsBuzz()
         {
             // Arrange
-            var MultipleOfFive = new MultipleOfFive();
+            var MultipleOfFiveRule = new MultipleOfFiveRule();
 
             // Act
-            var Result = MultipleOfFive.GetString(DayOfWeek.Monday);
+            var Result = MultipleOfFiveRule.GetCurrentDayString(DayOfWeek.Monday);
 
             // Assert
             string Expected = "Buzz";

@@ -15,45 +15,20 @@ namespace Fizzbuzz.MVC.Test.Controllers
 {
     class HomeControllersTest
     {
-        private Mock<IFizzbuzzLogic> _fizzbuzzLogic;
-        private Mock<IDateTimeProvider> _dateTimeProvider;
+        private Mock<IFizzbuzzLogic> FizzbuzzLogic;
 
         [SetUp]
         public void Setup()
         {
-            _fizzbuzzLogic = new Mock<IFizzbuzzLogic>();
-            _fizzbuzzLogic.Setup(x => x.GetFizzBuzzList(It.IsAny<int>(), It.IsAny<DayOfWeek>())).Returns(new List<string>());
-            _dateTimeProvider = new Mock<IDateTimeProvider>();
-        }
-
-        [Test]
-        public void Result_FizzbuzzModelWithInputStringTenAndPageNumberOne_ReturnViewResultWithInputStringAndOutputListOfPagedListType()
-        {
-            // Arrange
-            var HomeController = new HomeController(_fizzbuzzLogic.Object, _dateTimeProvider.Object);
-            var DummyModel = new FizzbuzzModel
-            {
-                InputString = "10"
-            };
-            var page = 1;
-
-            // Act
-            var ViewResult = HomeController.Result(DummyModel, page) as ViewResult;
-            var FizzbuzzModel = ViewResult.Model as FizzbuzzModel;
-
-            // Assert
-            string ExpectedInputString = "10";
-
-            Assert.AreEqual(ExpectedInputString, FizzbuzzModel.InputString);
-            Assert.IsAssignableFrom<PagedList<string>>(FizzbuzzModel.OutputList);
-
+            FizzbuzzLogic = new Mock<IFizzbuzzLogic>();
+            FizzbuzzLogic.Setup(x => x.GetFizzBuzzList(It.IsAny<int>())).Returns(new List<string>());
         }
 
         [Test]
         public void Result_InputStringTenAndPageNumberOne_ReturnViewResultWithInputStringAndOutputListOfPagedListType()
         {
             // Arrange
-            var HomeController = new HomeController(_fizzbuzzLogic.Object, _dateTimeProvider.Object);
+            var HomeController = new HomeController(FizzbuzzLogic.Object);
             var inputString = "10";
             var page = 1;
 

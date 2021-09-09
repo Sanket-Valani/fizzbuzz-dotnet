@@ -17,6 +17,6 @@
     padding: 10px;
 }
 
-p[fizzbuzzString="Wizz"], p[fizzbuzzString="Wuzz"], p[fizzbuzzString="WizzWuzz"] {
+.Wizz, .Wuzz, .WizzWuzz {
     color: blue;
 }

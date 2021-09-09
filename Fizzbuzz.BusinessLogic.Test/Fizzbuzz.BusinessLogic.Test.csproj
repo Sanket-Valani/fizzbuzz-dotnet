@@ -69,8 +69,8 @@
   <ItemGroup>
     <Compile Include="Implementation\DateTimeProviderTest.cs" />
     <Compile Include="Implementation\FizzbuzzLogicTest.cs" />
-    <Compile Include="Implementation\MultipleOfFiveTest.cs" />
-    <Compile Include="Implementation\MultipleOfThreeTest.cs" />
+    <Compile Include="Implementation\MultipleOfFiveRuleTest.cs" />
+    <Compile Include="Implementation\MultipleOfThreeRuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -33,8 +33,7 @@ namespace Fizzbuzz.MVC.DependencyResolution {
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
-            For<IFizzbuzzLogic>().Use(new FizzbuzzLogic(new List<IRule> { new MultipleOfThree(), new MultipleOfFive() }, new DateTimeProvider()));
-            For<IDateTimeProvider>().Use<DateTimeProvider>();
+            For<IFizzbuzzLogic>().Use(new FizzbuzzLogic(new List<IRule> { new MultipleOfThreeRule(), new MultipleOfFiveRule() }, new DateTimeProvider()));
         }
 
         #endregion
